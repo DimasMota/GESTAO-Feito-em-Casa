@@ -131,6 +131,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVincular_Usuario_Grupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVincular_Usuario_Grupo.Designer.cs">
+      <DependentUpon>FormVincular_Usuario_Grupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdicionarPermissao.resx">
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVincular_Usuario_Grupo.resx">
+      <DependentUpon>FormVincular_Usuario_Grupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

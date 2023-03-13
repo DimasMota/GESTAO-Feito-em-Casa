@@ -3,6 +3,7 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -71,6 +72,13 @@ namespace BLL
         {
             GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
             grupousuarioDAL.Excluir(_id);
+        }
+
+
+        public List<GrupoUsuario> BuscarTodos_GruposPorUsuario(int _id)
+        {
+            GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+            return grupousuarioDAL.BuscarTodos_GruposPorUsuario(_id);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,17 +22,32 @@ namespace WindowsFormsAppPrincipal
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text == "")
+            if (radioButton1.Checked)
             {
 
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
                 usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
             }
-            else
+            else if(radioButton2.Checked)
             {
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
-                usuarioBindingSource.DataSource = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
+                       
 
+                usuarioBindingSource.DataSource = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
+              
+
+            }
+            else if (radioButton3.Checked)
+            {
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+              
+                GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
+               
+               
+                usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorId (Convert.ToInt32(textBox1.Text));
+                              
+               
+                grupoUsuariosBindingSource.DataSource = grupousuarioBLL.BuscarTodos_GruposPorUsuario(Convert.ToInt32(textBox1.Text));
             }
 
         }
@@ -59,6 +75,14 @@ namespace WindowsFormsAppPrincipal
         private void buttonBuscarExcluir_Click(object sender, EventArgs e)
         {
             using (FormExcluirUsuario frm = new FormExcluirUsuario())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void buttonBuscarAdicionarGrupo_Click(object sender, EventArgs e)
+        {
+            using (FormVincular_Usuario_Grupo frm = new FormVincular_Usuario_Grupo())
             {
                 frm.ShowDialog();
             }
