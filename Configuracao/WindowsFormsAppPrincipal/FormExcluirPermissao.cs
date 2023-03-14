@@ -40,7 +40,7 @@ namespace WindowsFormsAppPrincipal
 
         private void buttonExcluirPermissao_Click(object sender, EventArgs e)
         {
-            string menssagem = "Deseja realmente EXCLUIR está permissão?";
+            string menssagem = "Deseja realmente EXCLUIR esta permissão?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
             string caption = "Error Detected in Input";

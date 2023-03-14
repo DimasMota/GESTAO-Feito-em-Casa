@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Security.Cryptography;
 
 namespace DAL
 {
@@ -185,8 +186,16 @@ namespace DAL
             }
             catch (Exception ex)
             {
+                usuario = new Usuario();
+                usuario.Nome = "";
+                usuario.NomeUsuario = "";
+                usuario.DataNascimento = "";
+                usuario.Cpf = "";
+                usuario.Email = "";
+                return usuario;
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+
+                // throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
             }
             finally
             {
@@ -194,9 +203,45 @@ namespace DAL
             }
         }
 
-            //******************************************************************************************************
+        //******************************************************************************************************
 
-            public Usuario BuscarPorNomeAcesso(string _nome)
+        public void Vincular_Usuario_Grupo(Usuario _id_usuario, GrupoUsuario _id_grupo)
+        {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "INSERT INTO Grupo_com_Usuario_N_N (cod_usuario, cod_GrupoUsuario)" +
+                                  "VALUES (@cod_usuario, @cod_grupousuario)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@cod_usuario", _id_usuario.Id);
+                cmd.Parameters.AddWithValue("@cod_grupousuario", _id_grupo.Id);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //******************************************************************************************************************
+
+        public Usuario BuscarPorNomeAcesso(string _nome)
         {
             Usuario usuario = new Usuario();
             SqlConnection cn = new SqlConnection();
@@ -263,7 +308,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@nome_Usuario", _usuario.NomeUsuario);
                 cmd.Parameters.AddWithValue("@data_Nascimento", _usuario.DataNascimento);
                 cmd.Parameters.AddWithValue("@cpf_Usuario", _usuario.Cpf);
-                cmd.Parameters.AddWithValue("@senha", _usuario.Senha);    
+                cmd.Parameters.AddWithValue("@senha", _usuario.Senha);
                 cmd.Parameters.AddWithValue("@email", _usuario.Email);
                 cmd.Parameters.AddWithValue("@ativo", _usuario.Ativo);
                 cmd.Parameters.AddWithValue("@id", _usuario.Id);
@@ -285,7 +330,9 @@ namespace DAL
             }
 
         }
-
+        //****************************************************************************************************************************************************************
+        //****************************************************************************************************************************************************************
+        //****************************************************************************************************************************************************************
         public void Excluir(Usuario _id)
         {
             SqlConnection cn = new SqlConnection();
@@ -322,7 +369,39 @@ namespace DAL
 
         //*****************************************************************************************************************************************************
 
-       
+        public void Excluir_Vinculo_Usuario_Grupo(int _id_usuario, int _id_grupo)
+        {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "DELETE FROM Grupo_com_Usuario_N_N WHERE  cod_usuario = @cod_usuario AND cod_GrupoUsuario = @cod_grupousuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@cod_usuario", _id_usuario);
+                cmd.Parameters.AddWithValue("@cod_grupousuario", _id_grupo);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
 
     }
 

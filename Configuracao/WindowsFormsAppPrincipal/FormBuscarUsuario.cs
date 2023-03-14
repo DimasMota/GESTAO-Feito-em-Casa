@@ -24,17 +24,32 @@ namespace WindowsFormsAppPrincipal
 
             if (radioButton1.Checked)
             {
-
+                textBox1.Text = "";
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
+                GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
+                Usuario usuario = new Usuario();
+
+                
+
                 usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
+
+                grupoUsuariosBindingSource.DataSource = grupousuarioBLL.BuscarTodos_GruposPorUsuario(Convert.ToInt32(idTextBox.Text)); 
+
+
             }
             else if(radioButton2.Checked)
             {
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
+                GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
+                Usuario usuario = new Usuario();
                        
-
+               
                 usuarioBindingSource.DataSource = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
-              
+               
+                usuario = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
+
+                grupoUsuariosBindingSource.DataSource = grupousuarioBLL.BuscarTodos_GruposPorUsuario(usuario.Id);
+                textBox1.Text = "";
 
             }
             else if (radioButton3.Checked)
@@ -48,6 +63,7 @@ namespace WindowsFormsAppPrincipal
                               
                
                 grupoUsuariosBindingSource.DataSource = grupousuarioBLL.BuscarTodos_GruposPorUsuario(Convert.ToInt32(textBox1.Text));
+                textBox1.Text = "";
             }
 
         }
@@ -83,6 +99,14 @@ namespace WindowsFormsAppPrincipal
         private void buttonBuscarAdicionarGrupo_Click(object sender, EventArgs e)
         {
             using (FormVincular_Usuario_Grupo frm = new FormVincular_Usuario_Grupo())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void buttonBuscarAdionarGrupo_Click(object sender, EventArgs e) // EXCLUIR USUARIO DE UM GRUPO
+        {
+           using (FormExcluir_Vinculo_Usuario_Grupo frm = new FormExcluir_Vinculo_Usuario_Grupo())
             {
                 frm.ShowDialog();
             }

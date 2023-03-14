@@ -54,6 +54,16 @@ namespace BLL
 
         }
 
+        //***************************************************************************************************************************************
+        public void Vincular_Usuario_Grupo(Usuario _id_usuario, GrupoUsuario _id_grupo)
+        {
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.Vincular_Usuario_Grupo(_id_usuario, _id_grupo);
+        }
+
+
+
+        //***************************************************************************************************************************************
 
 
         public Usuario BuscarPorNomeAcesso(string _nome_busca)
@@ -102,10 +112,18 @@ namespace BLL
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Alterar(_alterarUsuario);
         }
+        // **************************************************************************************************************************************************
         public void Excluir(Usuario _id)
         {
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Excluir(_id);
+        }
+
+        //**************************************************************************************************************************************************
+        public void Excluir_Vinculo_Usuario_Grupo(int _id_usuario,int _id_grupo)
+        {
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.Excluir_Vinculo_Usuario_Grupo(_id_usuario, _id_grupo);
         }
 
     }

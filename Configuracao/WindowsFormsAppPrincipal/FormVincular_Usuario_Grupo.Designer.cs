@@ -38,6 +38,8 @@
             this.nomeTextBox = new System.Windows.Forms.TextBox();
             this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grupoUsuariosDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.idTextBox_Grupo = new System.Windows.Forms.TextBox();
             this.nomeGrupoTextBox = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@
             this.buttonBuscarGrupos = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             idLabel = new System.Windows.Forms.Label();
             nomeLabel = new System.Windows.Forms.Label();
             idLabel1 = new System.Windows.Forms.Label();
@@ -57,10 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // usuarioBindingSource
-            // 
-            this.usuarioBindingSource.DataSource = typeof(Models.Usuario);
             // 
             // idLabel
             // 
@@ -71,14 +67,6 @@
             idLabel.TabIndex = 1;
             idLabel.Text = "Id:";
             // 
-            // idTextBox_Usuario
-            // 
-            this.idTextBox_Usuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Id", true));
-            this.idTextBox_Usuario.Location = new System.Drawing.Point(67, 59);
-            this.idTextBox_Usuario.Name = "idTextBox_Usuario";
-            this.idTextBox_Usuario.Size = new System.Drawing.Size(100, 20);
-            this.idTextBox_Usuario.TabIndex = 2;
-            // 
             // nomeLabel
             // 
             nomeLabel.AutoSize = true;
@@ -87,6 +75,36 @@
             nomeLabel.Size = new System.Drawing.Size(38, 13);
             nomeLabel.TabIndex = 3;
             nomeLabel.Text = "Nome:";
+            // 
+            // idLabel1
+            // 
+            idLabel1.AutoSize = true;
+            idLabel1.Location = new System.Drawing.Point(42, 117);
+            idLabel1.Name = "idLabel1";
+            idLabel1.Size = new System.Drawing.Size(19, 13);
+            idLabel1.TabIndex = 7;
+            idLabel1.Text = "Id:";
+            // 
+            // nomeGrupoLabel
+            // 
+            nomeGrupoLabel.AutoSize = true;
+            nomeGrupoLabel.Location = new System.Drawing.Point(185, 120);
+            nomeGrupoLabel.Name = "nomeGrupoLabel";
+            nomeGrupoLabel.Size = new System.Drawing.Size(70, 13);
+            nomeGrupoLabel.TabIndex = 9;
+            nomeGrupoLabel.Text = "Nome Grupo:";
+            // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataSource = typeof(Models.Usuario);
+            // 
+            // idTextBox_Usuario
+            // 
+            this.idTextBox_Usuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Id", true));
+            this.idTextBox_Usuario.Location = new System.Drawing.Point(67, 59);
+            this.idTextBox_Usuario.Name = "idTextBox_Usuario";
+            this.idTextBox_Usuario.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox_Usuario.TabIndex = 2;
             // 
             // nomeTextBox
             // 
@@ -115,8 +133,24 @@
             this.grupoUsuariosDataGridView.Location = new System.Drawing.Point(12, 189);
             this.grupoUsuariosDataGridView.Name = "grupoUsuariosDataGridView";
             this.grupoUsuariosDataGridView.ReadOnly = true;
-            this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(368, 220);
+            this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(515, 273);
             this.grupoUsuariosDataGridView.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "NomeGrupo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nome do Grupo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // label1
             // 
@@ -127,15 +161,6 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Relação de grupos cadastrados:";
             // 
-            // idLabel1
-            // 
-            idLabel1.AutoSize = true;
-            idLabel1.Location = new System.Drawing.Point(42, 117);
-            idLabel1.Name = "idLabel1";
-            idLabel1.Size = new System.Drawing.Size(19, 13);
-            idLabel1.TabIndex = 7;
-            idLabel1.Text = "Id:";
-            // 
             // idTextBox_Grupo
             // 
             this.idTextBox_Grupo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.grupoUsuariosBindingSource, "Id", true));
@@ -143,15 +168,6 @@
             this.idTextBox_Grupo.Name = "idTextBox_Grupo";
             this.idTextBox_Grupo.Size = new System.Drawing.Size(100, 20);
             this.idTextBox_Grupo.TabIndex = 8;
-            // 
-            // nomeGrupoLabel
-            // 
-            nomeGrupoLabel.AutoSize = true;
-            nomeGrupoLabel.Location = new System.Drawing.Point(185, 120);
-            nomeGrupoLabel.Name = "nomeGrupoLabel";
-            nomeGrupoLabel.Size = new System.Drawing.Size(70, 13);
-            nomeGrupoLabel.TabIndex = 9;
-            nomeGrupoLabel.Text = "Nome Grupo:";
             // 
             // nomeGrupoTextBox
             // 
@@ -192,7 +208,7 @@
             // 
             // buttonBuscarGrupos
             // 
-            this.buttonBuscarGrupos.Location = new System.Drawing.Point(390, 189);
+            this.buttonBuscarGrupos.Location = new System.Drawing.Point(543, 189);
             this.buttonBuscarGrupos.Name = "buttonBuscarGrupos";
             this.buttonBuscarGrupos.Size = new System.Drawing.Size(75, 23);
             this.buttonBuscarGrupos.TabIndex = 14;
@@ -220,22 +236,6 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Grupo:";
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "NomeGrupo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nome do Grupo";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // FormVincular_Usuario_Grupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +258,7 @@
             this.Controls.Add(idLabel);
             this.Controls.Add(this.idTextBox_Usuario);
             this.Name = "FormVincular_Usuario_Grupo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vínculo de Usuário com Grupo";
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).EndInit();

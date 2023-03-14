@@ -36,13 +36,15 @@ namespace WindowsFormsAppPrincipal
 
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
-            Vincular_Usuario_GrupoBLL vincular_Usuario_GrupoBLL = new Vincular_Usuario_GrupoBLL();
-            Vincular_Usuario_Grupo vincular_usuario_grupo = new Vincular_Usuario_Grupo();
+            UsuarioBLL usuarioBLL = new UsuarioBLL();
+            GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
+            Usuario usuario = new Usuario();
+            GrupoUsuario grupousuario = new GrupoUsuario();
+            
+            usuario.Id = Convert.ToInt32(idTextBox_Usuario.Text);
+            grupousuario.Id = Convert.ToInt32(idTextBox_Grupo.Text);
 
-           vincular_usuario_grupo.Id_usuario = Convert.ToInt32(idTextBox_Usuario.Text);
-            vincular_usuario_grupo.Id_grupo = Convert.ToInt32(idTextBox_Grupo.Text);
-
-            vincular_Usuario_GrupoBLL.Inserir(vincular_usuario_grupo);
+            usuarioBLL.Vincular_Usuario_Grupo(usuario, grupousuario);
         }
     }
 }

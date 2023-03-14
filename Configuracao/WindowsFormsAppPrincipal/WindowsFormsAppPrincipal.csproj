@@ -119,6 +119,12 @@
     <Compile Include="FormExcluirUsuario.Designer.cs">
       <DependentUpon>FormExcluirUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormExcluir_Vinculo_Usuario_Grupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExcluir_Vinculo_Usuario_Grupo.Designer.cs">
+      <DependentUpon>FormExcluir_Vinculo_Usuario_Grupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPerguntaExcluir.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormExcluirUsuario.resx">
       <DependentUpon>FormExcluirUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcluir_Vinculo_Usuario_Grupo.resx">
+      <DependentUpon>FormExcluir_Vinculo_Usuario_Grupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPerguntaExcluir.resx">
       <DependentUpon>FormPerguntaExcluir.cs</DependentUpon>

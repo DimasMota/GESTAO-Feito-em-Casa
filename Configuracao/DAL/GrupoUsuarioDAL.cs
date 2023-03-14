@@ -261,16 +261,18 @@ namespace DAL
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
-                    while (rd.Read())
-                    {
-                        grupousuario = new GrupoUsuario();
-                        grupousuario.Id = Convert.ToInt32(rd["id_GrupoUsuario"]);
-                        grupousuario.NomeGrupo = rd["NomeGrupo"].ToString();
+                   
+                        while (rd.Read())
+                        {
+                            grupousuario = new GrupoUsuario();
+                            grupousuario.Id = Convert.ToInt32(rd["id_GrupoUsuario"]);
+                            grupousuario.NomeGrupo = rd["NomeGrupo"].ToString();
 
-                        
-                        vincular_usuario_grupos.Add(grupousuario);
-                       
-                    }
+
+                            vincular_usuario_grupos.Add(grupousuario);
+
+                        }
+                  
                 }
                 return vincular_usuario_grupos;
             }
